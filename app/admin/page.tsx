@@ -32,9 +32,17 @@ export default function AdminPanel() {
     try {
       const response = await fetch('/api/books');
       const data = await response.json();
-      setBooks(data);
+      
+      if (!response.ok) {
+        console.error('API Error:', data);
+        alert(`Error: ${data.error || 'Failed to fetch books'}`);
+        return;
+      }
+      
+      setBooks(Array.isArray(data) ? data : []);
     } catch (error) {
       console.error('Error fetching books:', error);
+      alert('Failed to fetch books. Check console for details.');
     }
   };
 
