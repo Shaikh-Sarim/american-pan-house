@@ -44,18 +44,6 @@ export function HeroSection() {
         >
           {/* LEFT: Text Content */}
           <div>
-            {/* Logo */}
-            <motion.div
-              variants={itemVariants}
-              className="mb-6 flex items-center gap-4"
-            >
-              <img 
-                src="/logo.png" 
-                alt="American Pen House Logo" 
-                className="h-16 w-auto object-contain"
-              />
-            </motion.div>
-            
             {/* Headline */}
             <motion.h1
               variants={itemVariants}
