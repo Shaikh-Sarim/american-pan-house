@@ -13,7 +13,7 @@ export function Footer() {
           <div>
             <div className="mb-4 flex items-center gap-3">
               <img 
-                src="/assets/american logo.jpeg" 
+                src="/american-logo.jpeg" 
                 alt="American Pen House Logo" 
                 className="h-12 w-auto object-contain"
               />
