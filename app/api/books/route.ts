@@ -6,8 +6,7 @@ const bookSchema = z.object({
   title: z.string().min(1, "Title is required"),
   author: z.string().min(1, "Author is required"),
   description: z.string().min(1, "Description is required"),
-  coverImage: z.string().url("Must be a valid image URL"),
-  price: z.number().positive("Price must be positive"),
+  coverImage: z.string().min(1, "Cover image is required"),
 });
 
 export async function GET() {
@@ -43,7 +42,6 @@ export async function POST(request: NextRequest) {
         author: validatedData.author,
         description: validatedData.description,
         coverImage: validatedData.coverImage,
-        price: validatedData.price,
         status: "PUBLISHED",
       },
     });

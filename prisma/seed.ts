@@ -17,7 +17,6 @@ async function main() {
       description:
         "A comprehensive guide to modern publishing strategies and techniques for aspiring authors. Learn how to navigate the publishing world with confidence.",
       coverImage: "/book-cover-1.png",
-      price: 29.99,
       status: "PUBLISHED",
     },
   });
@@ -29,7 +28,6 @@ async function main() {
       description:
         "Explore the intersection of technology and literature in this groundbreaking work. Discover how digital platforms are transforming the way we read.",
       coverImage: "/book-cover-2.png",
-      price: 24.99,
       status: "PUBLISHED",
     },
   });
@@ -41,7 +39,6 @@ async function main() {
       description:
         "A collection of touching personal narratives that will inspire and move you. Real stories from real people about overcoming challenges and finding purpose.",
       coverImage: "/book-cover-3.png",
-      price: 19.99,
       status: "PUBLISHED",
     },
   });
@@ -53,7 +50,6 @@ async function main() {
       description:
         "How independent authors are changing the literary landscape. A practical guide to self-publishing success in the modern era.",
       coverImage: "/book-cover-4.png",
-      price: 34.99,
       status: "PUBLISHED",
     },
   });

@@ -10,7 +10,6 @@ interface Book {
   author: string;
   description: string;
   coverImage: string;
-  price: number;
 }
 
 export default function AdminPanel() {
@@ -20,9 +19,9 @@ export default function AdminPanel() {
     author: '',
     description: '',
     coverImage: '',
-    price: 0,
   });
   const [loading, setLoading] = useState(false);
+  const [imagePreview, setImagePreview] = useState<string>('');
 
   useEffect(() => {
     fetchBooks();
@@ -52,8 +51,31 @@ export default function AdminPanel() {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
-      [name]: name === 'price' ? parseFloat(value) : value,
+      [name]: value,
     }));
+  };
+
+  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      // Validate file type
+      if (!file.type.startsWith('image/')) {
+        alert('Please select an image file');
+        return;
+      }
+
+      // Read file and convert to base64
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        const result = reader.result as string;
+        setImagePreview(result);
+        setFormData((prev) => ({
+          ...prev,
+          coverImage: result,
+        }));
+      };
+      reader.readAsDataURL(file);
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -75,8 +97,8 @@ export default function AdminPanel() {
           author: '',
           description: '',
           coverImage: '',
-          price: 0,
         });
+        setImagePreview('');
         fetchBooks();
         alert('Book added successfully!');
       } else {
@@ -166,33 +188,36 @@ export default function AdminPanel() {
 
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1">
-                  Cover Image URL
+                  Cover Image
                 </label>
                 <input
-                  type="url"
-                  name="coverImage"
-                  value={formData.coverImage}
-                  onChange={handleInputChange}
-                  required
+                  type="file"
+                  accept="image/*"
+                  onChange={handleImageUpload}
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-red"
-                  placeholder="https://example.com/image.jpg"
                 />
-              </div>
-
-              <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-1">
-                  Price
-                </label>
-                <input
-                  type="number"
-                  name="price"
-                  value={formData.price}
-                  onChange={handleInputChange}
-                  required
-                  step="0.01"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-red"
-                  placeholder="19.99"
-                />
+                {imagePreview && (
+                  <div className="mt-3 relative">
+                    <img
+                      src={imagePreview}
+                      alt="Preview"
+                      className="w-full h-48 object-cover rounded-lg border border-gray-200"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setImagePreview('');
+                        setFormData((prev) => ({
+                          ...prev,
+                          coverImage: '',
+                        }));
+                      }}
+                      className="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded text-sm hover:bg-red-600"
+                    >
+                      Remove
+                    </button>
+                  </div>
+                )}
               </div>
 
               <button
@@ -240,10 +265,7 @@ export default function AdminPanel() {
                         <p className="text-gray-600 text-sm mt-2 line-clamp-2">
                           {book.description}
                         </p>
-                        <div className="mt-4 flex justify-between items-center">
-                          <span className="text-2xl font-bold text-brand-red">
-                            ${book.price.toFixed(2)}
-                          </span>
+                        <div className="mt-4">
                           <span className="text-xs bg-green-100 text-green-800 px-3 py-1 rounded-full">
                             Published
                           </span>
