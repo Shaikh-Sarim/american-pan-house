@@ -1,0 +1,6 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
+  "envPrefix": "NEXT_PUBLIC_",
+  "nodeVersion": "18.x"
+}
