@@ -154,12 +154,6 @@ export function PortfolioSection() {
                 {book.description}
               </p>
 
-              <div className="flex items-center gap-4 mb-8">
-                <span className="text-3xl font-bold text-yellow-300">
-                  ${book.price.toFixed(2)}
-                </span>
-              </div>
-
               <Link href="/portfolio" className="bg-brand-red text-white px-8 py-3 rounded-full font-semibold hover:bg-red-700 transition-colors duration-300 inline-block">
                 View More
               </Link>
