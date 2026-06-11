@@ -11,9 +11,16 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Company Info */}
           <div>
-            <h3 className="text-xl font-bold mb-4">
-              <span className="text-brand-red">American</span> Pen House
-            </h3>
+            <div className="mb-4 flex items-center gap-3">
+              <img 
+                src="/logo.png" 
+                alt="American Pen House Logo" 
+                className="h-12 w-auto object-contain"
+              />
+              <h3 className="text-xl font-bold">
+                <span className="text-brand-red">American</span> Pen House
+              </h3>
+            </div>
             <p className="text-gray-300 text-sm">
               Empowering authors to share their stories with the world through professional publishing services.
             </p>

@@ -12,6 +12,9 @@ export const metadata: Metadata = {
     'cover design',
     'author support',
   ],
+  icons: {
+    icon: '/logo.png',
+  },
   openGraph: {
     title: 'American Pen House',
     description: 'Your Path to Publishing Excellence',

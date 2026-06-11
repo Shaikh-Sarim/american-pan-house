@@ -151,20 +151,6 @@ export default function LoginPage() {
               </button>
             </form>
 
-            {/* Divider */}
-            <div className="my-6 flex items-center gap-4">
-              <div className="flex-1 h-px bg-gray-300" />
-              <span className="text-gray-600 text-sm">Demo Credentials</span>
-              <div className="flex-1 h-px bg-gray-300" />
-            </div>
-
-            {/* Demo Info */}
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-sm text-blue-700 mb-6">
-              <p className="font-semibold mb-2">Demo Account:</p>
-              <p>Email: demo@example.com</p>
-              <p>Password: password123</p>
-            </div>
-
             {/* Footer Link */}
             <p className="text-center text-gray-600 text-sm">
               Not an admin?{' '}
