@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
 import Link from 'next/link';
 import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Phone, Mail, MapPin } from 'lucide-react';
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,100 +10,102 @@ export function Header() {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <header className="fixed w-full top-0 z-50 bg-brand-navy text-white shadow-md">
-      <nav className="section-container flex items-center justify-between py-4">
-        {/* Logo */}
-        <Link href="/" className="text-2xl font-bold">
-          <span className="text-brand-red">American</span> Pen House
-        </Link>
+    <header className="fixed w-full top-0 z-50 text-white">
+      {/* Top info strip */}
+      <div className="w-full bg-white/95 text-brand-navy">
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center gap-8 py-2 text-sm">
+          <div className="flex items-center gap-2">
+            <Phone size={16} />
+            <a href="tel:+15551234567" className="hover:underline">+1 (555) 123-4567</a>
+          </div>
+          <div className="hidden sm:flex items-center gap-2">
+            <Mail size={16} />
+            <a href="mailto:info@americanpenhouse.com" className="hover:underline">info@americanpenhouse.com</a>
+          </div>
+          <div className="hidden md:flex items-center gap-2">
+            <MapPin size={16} />
+            <span>123 Literary Lane, New York, NY 10001</span>
+          </div>
+        </div>
+      </div>
 
-        {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-8">
-          <Link href="/" className="hover:text-brand-red transition-colors">
-            Home
-          </Link>
-          <Link href="/services" className="hover:text-brand-red transition-colors">
-            Services
-          </Link>
-          <Link href="/portfolio" className="hover:text-brand-red transition-colors">
-            Portfolio
-          </Link>
-          <Link href="/about" className="hover:text-brand-red transition-colors">
-            About
-          </Link>
-          <Link href="/testimonials" className="hover:text-brand-red transition-colors">
-            Testimonials
-          </Link>
-          <Link href="/contact" className="btn-primary">
-            Contact
-          </Link>
-          <Link href="/login" className="text-xs bg-brand-red px-3 py-2 rounded hover:bg-red-700 transition-colors">
-            Login
+      <div className="w-full bg-brand-navy/85 backdrop-blur-sm border-b border-brand-navy/30 relative">
+        <nav className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 w-full grid grid-cols-3 items-center py-4">
+          {/* Left: Logo */}
+          <div className="col-span-1">
+            <Link href="/" className="text-2xl font-bold">
+              <span className="text-brand-red">American</span> Pen House
+            </Link>
+          </div>
+
+          {/* Center: Nav links */}
+          <div className="col-span-1 flex justify-center">
+            <div className="hidden md:flex items-center gap-8">
+              <Link href="/" className="hover:text-brand-red transition-colors text-lg">
+                Home
+              </Link>
+              <Link href="/services" className="hover:text-brand-red transition-colors text-lg">
+                Services
+              </Link>
+              <Link href="/portfolio" className="hover:text-brand-red transition-colors text-lg">
+                Portfolio
+              </Link>
+              <Link href="/about" className="hover:text-brand-red transition-colors text-lg">
+                About
+              </Link>
+              <Link href="/testimonials" className="hover:text-brand-red transition-colors text-lg">
+                Testimonials
+              </Link>
+              <Link href="/contact" className="hover:text-white/90 transition-colors text-lg">
+                Contact
+              </Link>
+            </div>
+          </div>
+
+          {/* Right: CTA + mobile toggle */}
+          <div className="col-span-1 flex items-center justify-end gap-4">
+            <button
+              className="md:hidden text-white p-2"
+              onClick={toggleMenu}
+              aria-label="Toggle menu"
+            >
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
+        </nav>
+        {/* Absolute CTA on the right edge for desktop */}
+        <div className="hidden md:block absolute right-8 top-1/2 -translate-y-1/2">
+          <Link href="/contact" className="bg-brand-red text-white rounded-full px-6 py-2 shadow-md">
+            Get a Quote
           </Link>
         </div>
-
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden text-white p-2"
-          onClick={toggleMenu}
-          aria-label="Toggle menu"
-        >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </nav>
+      </div>
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-brand-navy border-t border-brand-red">
-          <div className="section-container py-4 space-y-3 flex flex-col">
-            <Link
-              href="/"
-              className="py-2 hover:text-brand-red transition-colors"
-              onClick={() => setIsOpen(false)}
-            >
+        <div className="md:hidden bg-brand-navy/90 backdrop-blur-sm border-t border-brand-navy/30">
+          <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-3 flex flex-col">
+            <Link href="/" className="py-2 hover:text-brand-red transition-colors" onClick={() => setIsOpen(false)}>
               Home
             </Link>
-            <Link
-              href="/services"
-              className="py-2 hover:text-brand-red transition-colors"
-              onClick={() => setIsOpen(false)}
-            >
+            <Link href="/services" className="py-2 hover:text-brand-red transition-colors" onClick={() => setIsOpen(false)}>
               Services
             </Link>
-            <Link
-              href="/portfolio"
-              className="py-2 hover:text-brand-red transition-colors"
-              onClick={() => setIsOpen(false)}
-            >
+            <Link href="/portfolio" className="py-2 hover:text-brand-red transition-colors" onClick={() => setIsOpen(false)}>
               Portfolio
             </Link>
-            <Link
-              href="/about"
-              className="py-2 hover:text-brand-red transition-colors"
-              onClick={() => setIsOpen(false)}
-            >
+            <Link href="/about" className="py-2 hover:text-brand-red transition-colors" onClick={() => setIsOpen(false)}>
               About
             </Link>
-            <Link
-              href="/testimonials"
-              className="py-2 hover:text-brand-red transition-colors"
-              onClick={() => setIsOpen(false)}
-            >
+            <Link href="/testimonials" className="py-2 hover:text-brand-red transition-colors" onClick={() => setIsOpen(false)}>
               Testimonials
             </Link>
-            <Link
-              href="/contact"
-              className="py-2 hover:text-brand-red transition-colors"
-              onClick={() => setIsOpen(false)}
-            >
+            <Link href="/contact" className="py-2 hover:text-brand-red transition-colors" onClick={() => setIsOpen(false)}>
               Contact
             </Link>
-            <Link
-              href="/login"
-              className="btn-primary mt-2 text-center text-xs"
-              onClick={() => setIsOpen(false)}
-            >
-              Admin Login
+
+            <Link href="/contact" className="mt-2 text-center bg-brand-red text-white px-4 py-2 rounded-full" onClick={() => setIsOpen(false)}>
+              Get a Quote
             </Link>
           </div>
         </div>

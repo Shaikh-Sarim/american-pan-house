@@ -35,11 +35,11 @@ export function PublishingPromotionSection() {
             transition={{ duration: 0.8 }}
             className="flex items-center justify-center"
           >
-            <div className="rounded-lg overflow-hidden shadow-2xl w-full h-full">
+            <div className="rounded-lg overflow-hidden shadow-2xl w-full max-w-xl mx-auto">
               <img
-                src="/what-to-expect.jpg"
-                alt="Library and publishing"
-                className="w-full h-full object-cover"
+                src="/elevate.png"
+                alt="Elevate your story"
+                className="w-full h-auto object-contain"
               />
             </div>
           </motion.div>

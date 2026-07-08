@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Star } from 'lucide-react';
+import { ConsultationForm } from './ConsultationForm';
 
 export function HeroSection() {
   const containerVariants = {
@@ -95,16 +96,12 @@ export function HeroSection() {
             </motion.div>
           </div>
 
-          {/* RIGHT: Hero Image */}
+          {/* RIGHT: Consultation Form (replaces hero image) */}
           <motion.div
             variants={itemVariants}
             className="relative flex items-center justify-center"
           >
-            <img 
-              src="/hero.png" 
-              alt="Professional Publishing" 
-              className="w-full h-auto rounded-lg shadow-2xl"
-            />
+            <ConsultationForm />
           </motion.div>
         </motion.div>
       </div>

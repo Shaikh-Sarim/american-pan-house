@@ -17,8 +17,8 @@ export function WhatToExpectSection() {
           {/* LEFT: Image */}
           <div className="flex items-center justify-center">
             <motion.img
-              src="/what-to-expect.jpg"
-              alt="Books Stack"
+              src="/collabrate.png"
+              alt="Collaborate"
               className="w-full h-auto object-cover rounded-lg shadow-2xl"
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
