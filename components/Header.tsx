@@ -51,8 +51,8 @@ export function Header() {
       <div className="w-full bg-brand-navy/85 backdrop-blur-sm border-b border-brand-navy/30 relative">
         <nav className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 w-full grid grid-cols-3 items-center py-4">
           {/* Left: Logo */}
-          <div className="col-span-1">
-            <Link href="/" className="text-2xl font-bold">
+          <div className="col-span-1 min-w-0">
+            <Link href="/" className="text-lg sm:text-xl md:text-2xl font-bold whitespace-nowrap block truncate">
               <span className="text-brand-red">American</span> Pen House
             </Link>
           </div>
