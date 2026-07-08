@@ -1,33 +1,52 @@
 "use client";
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Menu, X, Phone, Mail, MapPin } from 'lucide-react';
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isLarge, setIsLarge] = useState(false);
+  const [spacerHeight, setSpacerHeight] = useState<number>(80);
+  const headerRef = useRef<HTMLElement | null>(null);
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
+  useEffect(() => {
+    const onResize = () => {
+      setIsLarge(window.innerWidth >= 1024);
+      // update spacer height to match header's rendered height
+      if (headerRef.current) {
+        setSpacerHeight(headerRef.current.offsetHeight);
+      }
+    };
+
+    onResize();
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
+
   return (
-    <header className="fixed w-full top-0 z-50 text-white">
-      {/* Top info strip */}
-      <div className="w-full bg-white/95 text-brand-navy">
-        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center gap-8 py-2 text-sm">
-          <div className="flex items-center gap-2">
-            <Phone size={16} />
-            <a href="tel:+15551234567" className="hover:underline">+1 (555) 123-4567</a>
-          </div>
-          <div className="hidden sm:flex items-center gap-2">
-            <Mail size={16} />
-            <a href="mailto:info@americanpenhouse.com" className="hover:underline">info@americanpenhouse.com</a>
-          </div>
-          <div className="hidden md:flex items-center gap-2">
-            <MapPin size={16} />
-            <span>123 Literary Lane, New York, NY 10001</span>
+    <header ref={headerRef} className="fixed w-full top-0 z-50 text-white">
+      {/* Top info strip (desktop only) - rendered only on large screens to avoid mobile overlap */}
+      {isLarge && (
+        <div className="w-full bg-white/95 text-brand-navy">
+          <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center gap-8 py-2 text-sm">
+            <div className="flex items-center gap-2">
+              <Phone size={16} />
+              <a href="tel:+15551234567" className="hover:underline">+1 (555) 123-4567</a>
+            </div>
+            <div className="hidden sm:flex items-center gap-2">
+              <Mail size={16} />
+              <a href="mailto:info@americanpenhouse.com" className="hover:underline">info@americanpenhouse.com</a>
+            </div>
+            <div className="hidden md:flex items-center gap-2">
+              <MapPin size={16} />
+              <span>123 Literary Lane, New York, NY 10001</span>
+            </div>
           </div>
         </div>
-      </div>
+      )}
 
       <div className="w-full bg-brand-navy/85 backdrop-blur-sm border-b border-brand-navy/30 relative">
         <nav className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 w-full grid grid-cols-3 items-center py-4">
@@ -110,6 +129,9 @@ export function Header() {
           </div>
         </div>
       )}
+
+      {/* Spacer to prevent fixed header from overlapping content */}
+      <div style={{ height: spacerHeight }} aria-hidden="true" />
     </header>
   );
 }
