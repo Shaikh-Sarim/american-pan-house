@@ -124,8 +124,9 @@ export function TestimonialsSection() {
             animate="visible"
             exit="hidden"
             transition={{ duration: 0.6 }}
-            className="bg-white/10 backdrop-blur-md rounded-xl p-8 md:p-12 mb-8"
+            className="bg-white/10 backdrop-blur-md rounded-xl p-8 md:p-12 mb-8 overflow-hidden"
           >
+            <div className="min-h-[220px] md:min-h-[300px] flex flex-col justify-center">
             {/* Rating */}
             <div className="flex gap-1 mb-6">
               {[...Array(current.rating)].map((_, i) => (
@@ -159,6 +160,7 @@ export function TestimonialsSection() {
                 </div>
               </div>
             </div>
+              </div>
           </motion.div>
 
           {/* Navigation */}
