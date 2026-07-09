@@ -53,13 +53,15 @@ export function AuthorAchievementsSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="relative w-full overflow-hidden mb-6"
+          className="relative w-full overflow-hidden mb-6 min-h-[260px] md:min-h-[360px]"
         >
-          <img
-            src={current.image}
-            alt={`Achievement ${current.id}`}
-            className="w-full h-auto object-cover"
-          />
+          <div className="relative w-full h-full">
+            <img
+              src={current.image}
+              alt={`Achievement ${current.id}`}
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+          </div>
         </motion.div>
 
         {/* Dot Navigation */}

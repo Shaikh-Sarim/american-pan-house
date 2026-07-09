@@ -124,9 +124,9 @@ export function TestimonialsSection() {
             animate="visible"
             exit="hidden"
             transition={{ duration: 0.6 }}
-            className="bg-white/10 backdrop-blur-md rounded-xl p-8 md:p-12 mb-8 overflow-hidden"
+            className="bg-white/10 backdrop-blur-md rounded-xl p-8 md:p-12 mb-8 overflow-hidden min-h-[260px] md:min-h-[340px]"
           >
-            <div className="min-h-[220px] md:min-h-[300px] flex flex-col justify-center">
+            <div className="h-full min-h-[220px] md:min-h-[300px] flex flex-col justify-between">
             {/* Rating */}
             <div className="flex gap-1 mb-6">
               {[...Array(current.rating)].map((_, i) => (

@@ -83,11 +83,11 @@ export function FeaturedBooksSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[520px] md:min-h-[620px] overflow-hidden"
         >
           {/* LEFT: Book Cover with Red Frame */}
           <div className="flex items-center justify-center">
-            <div className="relative w-full max-w-sm">
+            <div className="relative w-full max-w-sm aspect-[4/5]">
               {/* Decorative Red Frame Background */}
               <div className="absolute inset-0 bg-brand-red rounded-3xl transform scale-105 z-0" />
               
@@ -95,11 +95,11 @@ export function FeaturedBooksSection() {
               <div className="absolute inset-3 bg-black rounded-2xl z-1" />
               
               {/* Image Container */}
-              <div className="relative z-10 m-4 rounded-lg overflow-hidden shadow-2xl">
+              <div className="absolute inset-0 z-10 m-4 rounded-lg overflow-hidden shadow-2xl">
                 <img
                   src={current.image}
                   alt={current.title}
-                  className="w-full h-auto object-cover"
+                  className="w-full h-full object-cover"
                 />
               </div>
             </div>

@@ -107,7 +107,7 @@ export function PortfolioSection() {
         </motion.div>
 
         {/* Main Carousel */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-8 min-h-[520px] md:min-h-[620px] overflow-hidden">
           {/* Left: Book Cover */}
           <motion.div
             className="flex justify-center"
@@ -116,7 +116,7 @@ export function PortfolioSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="relative w-full max-w-sm">
+            <div className="relative w-full max-w-sm aspect-[4/5]">
               {/* Decorative frame */}
               <div className="absolute inset-0 bg-brand-red rounded-xl transform scale-105 z-0 opacity-90"></div>
               {/* Black inner border */}
@@ -126,7 +126,7 @@ export function PortfolioSection() {
                 key={book.id}
                 src={book.coverImage}
                 alt={book.title}
-                className="w-full h-auto rounded-lg shadow-2xl relative z-10"
+                className="absolute inset-0 w-full h-full rounded-lg shadow-2xl object-cover relative z-10"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5 }}

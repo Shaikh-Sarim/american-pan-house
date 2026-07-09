@@ -71,12 +71,12 @@ export function ServicesSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="mb-12"
+          className="mb-12 min-h-[480px] md:min-h-[560px] overflow-hidden"
         >
           <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${isEven ? '' : 'lg:grid-cols-2'}`}>
             {/* Image Side */}
             <div className={`flex items-center justify-center ${!isEven ? 'lg:order-2' : ''}`}>
-              <div className="relative w-full max-w-sm">
+              <div className="relative w-full max-w-sm aspect-[4/5]">
                 {/* Decorative Red Frame Background */}
                 <div className="absolute inset-0 bg-brand-red rounded-2xl transform scale-105 z-0" />
                 
@@ -84,11 +84,11 @@ export function ServicesSection() {
                 <div className="absolute inset-2 bg-black rounded-xl z-1" />
                 
                 {/* Image Container */}
-                <div className="relative z-10 m-4 rounded-lg overflow-hidden shadow-2xl">
+                <div className="absolute inset-0 z-10 m-4 rounded-lg overflow-hidden shadow-2xl">
                   <img
                     src={current.image}
                     alt={current.title}
-                    className="w-full h-auto object-cover"
+                    className="w-full h-full object-cover"
                   />
                 </div>
               </div>
