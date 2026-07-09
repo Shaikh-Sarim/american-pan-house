@@ -49,40 +49,38 @@ export function Header() {
       )}
 
       <div className="w-full bg-brand-navy/85 backdrop-blur-sm border-b border-brand-navy/30 relative">
-        <nav className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 w-full grid grid-cols-3 items-center py-4">
+        <nav className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 w-full flex items-center justify-between gap-4 py-4 md:grid md:grid-cols-3 md:items-center">
           {/* Left: Logo */}
-          <div className="col-span-1 min-w-0">
-            <Link href="/" className="text-lg sm:text-xl md:text-2xl font-bold whitespace-nowrap block truncate">
+          <div className="min-w-0 flex-1">
+            <Link href="/" className="text-base sm:text-lg md:text-2xl font-bold whitespace-nowrap">
               <span className="text-brand-red">American</span> Pen House
             </Link>
           </div>
 
           {/* Center: Nav links */}
-          <div className="col-span-1 flex justify-center">
-            <div className="hidden md:flex items-center gap-8">
-              <Link href="/" className="hover:text-brand-red transition-colors text-lg">
-                Home
-              </Link>
-              <Link href="/services" className="hover:text-brand-red transition-colors text-lg">
-                Services
-              </Link>
-              <Link href="/portfolio" className="hover:text-brand-red transition-colors text-lg">
-                Portfolio
-              </Link>
-              <Link href="/about" className="hover:text-brand-red transition-colors text-lg">
-                About
-              </Link>
-              <Link href="/testimonials" className="hover:text-brand-red transition-colors text-lg">
-                Testimonials
-              </Link>
-              <Link href="/contact" className="hover:text-white/90 transition-colors text-lg">
-                Contact
-              </Link>
-            </div>
+          <div className="hidden md:flex md:justify-center md:col-span-1 gap-8">
+            <Link href="/" className="hover:text-brand-red transition-colors text-lg">
+              Home
+            </Link>
+            <Link href="/services" className="hover:text-brand-red transition-colors text-lg">
+              Services
+            </Link>
+            <Link href="/portfolio" className="hover:text-brand-red transition-colors text-lg">
+              Portfolio
+            </Link>
+            <Link href="/about" className="hover:text-brand-red transition-colors text-lg">
+              About
+            </Link>
+            <Link href="/testimonials" className="hover:text-brand-red transition-colors text-lg">
+              Testimonials
+            </Link>
+            <Link href="/contact" className="hover:text-white/90 transition-colors text-lg">
+              Contact
+            </Link>
           </div>
 
           {/* Right: CTA + mobile toggle */}
-          <div className="col-span-1 flex items-center justify-end gap-4">
+          <div className="flex items-center justify-end gap-4 md:col-span-1">
             <button
               className="md:hidden text-white p-2"
               onClick={toggleMenu}
