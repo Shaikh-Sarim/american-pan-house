@@ -107,7 +107,7 @@ export function PortfolioSection() {
         </motion.div>
 
         {/* Main Carousel */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-8 min-h-[520px] md:min-h-[620px] overflow-hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-8 h-[520px] md:h-[620px] overflow-hidden">
           {/* Left: Book Cover */}
           <motion.div
             className="flex justify-center"

@@ -19,7 +19,7 @@ const logos = [
 export function LogoCarousel() {
   return (
     <section className="py-8 bg-brand-navy">
-      <div className="w-full overflow-hidden">
+      <div className="w-full overflow-hidden h-20">
         <motion.div
           className="flex gap-12 px-8"
           animate={{ x: [0, -2000] }}

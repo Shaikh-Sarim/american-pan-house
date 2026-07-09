@@ -83,7 +83,7 @@ export function FeaturedBooksSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[520px] md:min-h-[620px] overflow-hidden"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center h-[520px] md:h-[620px] overflow-hidden"
         >
           {/* LEFT: Book Cover with Red Frame */}
           <div className="flex items-center justify-center">

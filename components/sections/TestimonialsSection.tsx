@@ -117,17 +117,18 @@ export function TestimonialsSection() {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          <motion.div
-            key={current.id}
-            variants={itemVariants}
-            initial="hidden"
-            animate="visible"
-            exit="hidden"
-            transition={{ duration: 0.6 }}
-            className="bg-white/10 backdrop-blur-md rounded-xl p-8 md:p-12 mb-8 overflow-hidden min-h-[260px] md:min-h-[340px]"
-          >
-            <div className="h-full min-h-[220px] md:min-h-[300px] flex flex-col justify-between">
-            {/* Rating */}
+          <div className="relative mb-8 overflow-hidden h-[340px] md:h-[420px]">
+            <motion.div
+              key={current.id}
+              variants={itemVariants}
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+              transition={{ duration: 0.6 }}
+              className="absolute inset-0 bg-white/10 backdrop-blur-md rounded-xl p-8 md:p-12 overflow-hidden"
+            >
+              <div className="h-full flex flex-col justify-between">
+              {/* Rating */}
             <div className="flex gap-1 mb-6">
               {[...Array(current.rating)].map((_, i) => (
                 <Star
@@ -161,7 +162,8 @@ export function TestimonialsSection() {
               </div>
             </div>
               </div>
-          </motion.div>
+            </motion.div>
+          </div>
 
           {/* Navigation */}
           <div className="flex items-center justify-between">

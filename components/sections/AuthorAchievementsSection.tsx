@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 const achievements = [
   {
@@ -55,11 +56,12 @@ export function AuthorAchievementsSection() {
           transition={{ duration: 0.8 }}
           className="relative w-full overflow-hidden mb-6 min-h-[260px] md:min-h-[360px]"
         >
-          <div className="relative w-full h-full">
-            <img
+          <div className="relative w-full h-[260px] md:h-[360px]">
+            <Image
               src={current.image}
               alt={`Achievement ${current.id}`}
-              className="absolute inset-0 w-full h-full object-cover"
+              fill
+              className="object-cover"
             />
           </div>
         </motion.div>

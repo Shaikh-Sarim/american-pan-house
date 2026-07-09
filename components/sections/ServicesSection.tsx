@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 
 const services = [
@@ -71,7 +72,7 @@ export function ServicesSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="mb-12 min-h-[480px] md:min-h-[560px] overflow-hidden"
+          className="mb-12 h-[520px] md:h-[560px] overflow-hidden"
         >
           <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${isEven ? '' : 'lg:grid-cols-2'}`}>
             {/* Image Side */}
@@ -85,10 +86,11 @@ export function ServicesSection() {
                 
                 {/* Image Container */}
                 <div className="absolute inset-0 z-10 m-4 rounded-lg overflow-hidden shadow-2xl">
-                  <img
+                  <Image
                     src={current.image}
                     alt={current.title}
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
                   />
                 </div>
               </div>
