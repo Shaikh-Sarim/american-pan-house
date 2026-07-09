@@ -54,14 +54,14 @@ export function AuthorAchievementsSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="relative w-full overflow-hidden mb-6 min-h-[260px] md:min-h-[360px]"
+          className="relative w-full mb-6 min-h-[260px] md:min-h-[360px] flex items-center justify-center bg-brand-red"
         >
           <div className="relative w-full h-[260px] md:h-[360px]">
             <Image
               src={current.image}
               alt={`Achievement ${current.id}`}
               fill
-              className="object-cover"
+              className="object-contain"
             />
           </div>
         </motion.div>
